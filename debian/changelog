@@ -1,0 +1,5 @@
+benthos (4.9.1-1) bullseye-wikimedia; urgency=medium
+
+  * Debian packaging. https://phabricator.wikimedia.org/T319214
+
+ -- Filippo Giunchedi <fgiunchedi@wikimedia.org>  Thu, 13 Oct 2022 09:51:36 +0200

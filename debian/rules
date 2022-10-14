@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE=1
+export GOPATH=/tmp/benthos/go
+export GOCACHE=/tmp/benthos/gocache
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	# Can be removed once Benthos creates /bin itself: https://github.com/benthosdev/benthos/pull/1515
+	install -d -m 755 -o root -g root $(GOPATH)/bin
+	dh_auto_install
+	install -D -m 755 -o root -g root $(GOPATH)/bin/benthos debian/benthos/usr/bin/benthos
+	install -D -m 644 -o root -g root debian/benthos.sysusers debian/benthos/usr/lib/sysusers.d/benthos.conf

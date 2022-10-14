@@ -1,0 +1,11 @@
+[Unit]
+Description=Fancy stream processing made operationally mundane
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=benthos
+ExecStart=/usr/bin/benthos
+
+[Install]
+WantedBy=multi-user.target

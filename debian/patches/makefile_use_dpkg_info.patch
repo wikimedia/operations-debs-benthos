@@ -1,0 +1,18 @@
+Description: auto-detect upstream version in Makefile
+Author: Filippo Giunchedi <fgiunchedi@wikimedia.org>
+
+---
+Last-Update: 2022-10-13
+
+--- benthos-4.9.1.orig/Makefile
++++ benthos-4.9.1/Makefile
+@@ -11,7 +11,8 @@ PATHINSTSERVERLESS = $(DEST_DIR)/serverl
+ PATHINSTDOCKER     = $(DEST_DIR)/docker
+ DOCKER_IMAGE       ?= jeffail/benthos
+ 
+-VERSION   := $(shell git describe --tags || echo "v0.0.0")
++include /usr/share/dpkg/pkg-info.mk
++VERSION   := $(DEB_VERSION_UPSTREAM)
+ VER_CUT   := $(shell echo $(VERSION) | cut -c2-)
+ VER_MAJOR := $(shell echo $(VER_CUT) | cut -f1 -d.)
+ VER_MINOR := $(shell echo $(VER_CUT) | cut -f2 -d.)

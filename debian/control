@@ -1,0 +1,17 @@
+Source: benthos
+Section: devel
+Priority: extra
+Maintainer: Filippo Giunchedi <fgiunchedi@wikimedia.org>
+Build-Depends: debhelper (>= 12),
+               git,
+               golang-go (>= 1.16),
+               ca-certificates,
+Standards-Version: 3.9.7
+Homepage: https://github.com/benthosdev/benthos
+
+Package: benthos
+Architecture: any
+Built-Using: ${misc:Built-Using}
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: Fancy stream processing made operationally mundane
